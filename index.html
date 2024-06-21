@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="datetime"></p>
+    <div id="imageContainer"></div>
+
+    <script>
+        window.onload = function () {
+            setInterval(function () {
+                var date = new Date();
+                var displayTime = date.toLocaleTimeString();
+
+                document.getElementById('datetime').innerHTML = displayTime;
+
+                const imageContainer = document.getElementById("imageContainer");
+                if (date.getHours() < 12) {
+                    imageContainer.innerHTML = `<img src="https://th.bing.com/th/id/OIP.0LybZlhk65581ySm5nyABgHaE6?rs=1&pid=ImgDetMain">`;
+                } else if (date.getHours() >= 12 && date.getHours() < 18) {
+                    imageContainer.innerHTML = `<img src="https://i.pinimg.com/originals/ec/75/eb/ec75eb9d9f48fdf481909c430b3df67b.jpg">`;
+                } else {
+                    imageContainer.innerHTML = `<img src="https://th.bing.com/th/id/OIP.k8a8k0l-ebTe8CdL4WbAUQHaE7?rs=1&pid=ImgDetMain">`;
+                }
+
+            }, 1000); // 1000 milliseconds = 1 second
+        }
+    </script>
+</body>
+
+</html>
